@@ -1,16 +1,34 @@
-// Get the modal
-var modal = document.getElementById('myModal');
+var pics = document.getElementsByTagName('img');
+var originalHeight = pics[0].height ;
+var originalWidth = pics[0].width ;
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById('myImg');
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
+for(var i=0; i<pics.length; i++) {
+    console.log("pic src:" + pics[i].src) ;
+    pics[i].addEventListener('mouseover', function() {
+        this.height = 300 ;
+        this.width = 320 ;
+});
+    pics[i].addEventListener('mouseover', function() {
+        this.height = originalHeight ;
+        this.width = originalWidth ;
+});
+    pics[i].addEventListener('click', function() {
+        var imgDiv = document.getElementById('imgDiv') ;
+            "-390px;'> <a href='javascript:dowork()'>Close</a></span> ";
+
+        imgDiv.style.visibility = "visible" ;
+});
+}
+function dowork(img) {
+    var imgDiv = document.getElementById('imgDiv');
+    imgDiv.innerHTML = "" ;
+    imgDiv.style.visibility = "hidden" ;
+
 }
 
+//pictures shrink on mouseover and don't return to regular size. Do not open onclick
+
+/*
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
@@ -18,3 +36,4 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
     modal.style.display = "none";
 }
+*/
